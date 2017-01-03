@@ -3,7 +3,6 @@ module ServerUtils
 	def self.get_country_id(countryList)
 		puts countryList.split(",")
 
-
 		#return array with Google Trends country ids from the countryList
 		countryTable = { "United States" => "p1",
 										"United Kingdom" => "p9",
