@@ -1,20 +1,17 @@
 module ServerUtils
 
-	def self.get_country_id(countryList)
-		puts countryList.split(",")
+	def self.get_country_id(country)
+		country_id_table = { 
+      us: "p1",
+			uk: "p9",
+			ca: "p13",
+			fr: "p16",
+			de: "p15",
+			jp: "p4",
+			mx: "p21", 
+    }
 
-		#return array with Google Trends country ids from the countryList
-		countryTable = { 
-			"United States" => "p1",
-			"United Kingdom" => "p9",
-			"Canada" => "p13",
-			"France" => "p16",
-			"Germany" => "p15",
-			"Japan" => "p4",
-			"Mexico" => "p21", 
-		}
-
-		puts countryTable[countryList]
+		puts country_id_table[country.to_sym]
 	end
 
 end
