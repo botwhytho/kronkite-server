@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'crack'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'thin'

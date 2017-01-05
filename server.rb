@@ -11,8 +11,8 @@ get "/" do
 end
 
 get "/trends" do 
-  content_type "text/xml"
-  FeedService.get_feeds(params[:countries])
+  content_type("application/json")
+  json(FeedService.get_feeds(params[:countries]))
 
 end
 
