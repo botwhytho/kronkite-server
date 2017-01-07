@@ -1,8 +1,8 @@
 module FeedService
-  require 'net/http'
-  require 'crack/xml'
-  require 'json'
-  require 'pp'
+  require "net/http"
+  require "crack/xml"
+  require "json"
+  require "pp"
 
   #Google Hot Trends XML Feed
   BASE_URL = "http://www.google.com/trends/hottrends/atom/feed?pn="
@@ -10,13 +10,11 @@ module FeedService
 
   def self.set_URL(cid)
     BASE_URL + "#{cid}"
-
   end
 
   def self.fetch_feed(cid)
     response = Net::HTTP.get_response(URI.parse(set_URL(cid)))
     @feed_data.push(feed_parser(response.body))
-    
   end
 
   def self.get_country_id(country)
@@ -31,21 +29,18 @@ module FeedService
     }
 
     country_id_table[country.to_sym]
-
   end
 
   def self.get_feeds(country_list)
     country_list.split(",").map do |country|
       fetch_feed(get_country_id(country))
-
     end
-    @feed_data
 
+    @feed_data
   end
 
   def self.feed_parser(xml_feed)
     Crack::XML.parse(xml_feed)
-
   end
 
 end
