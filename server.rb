@@ -3,6 +3,7 @@ require "sinatra"
 require "sinatra/json"
 require "./lib/feed_service"
 require "./lib/video_service"
+require "./lib/music_service"
 
 set :bind, "0.0.0.0"
 
@@ -19,3 +20,9 @@ get "/videos" do
   content_type("application/json")
   VideoService.get_videos
 end
+
+get "/music" do 
+  content_type("application/json")
+  json(MusicService.get_tracks)
+end
+
