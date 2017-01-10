@@ -1,22 +1,17 @@
 module MusicService
   require "net/http"
   require "base64"
+  require "rspotify"
+  require "pp"
   require "./lib/auth_service"
 
-  @spotify_api_credentials = AuthService.get_auth("spotifyAPI")
+  @API_creds = AuthService.get_auth("spotifyAPI")
 
   def self.get_tracks()
-    encode(@spotify_api_credentials)
+    RSpotify.authenticate(@API_creds["clientID"], @API_creds["clientSecret"])
+    category = RSpotify::Category.find("toplists", country: "US")
+
+    pp category.playlists.first.tracks
   end
-
-  def self.encode(creds)
-    coded_creds = {}
-       creds.each do |cred, value|
-        coded_creds[cred] = Base64.encode64(value)
-       end
-    coded_creds
-  end
-
-
 
 end

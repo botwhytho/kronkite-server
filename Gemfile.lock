@@ -5,13 +5,44 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     daemons (1.2.4)
+    domain_name (0.5.20161129)
+      unf (>= 0.0.5, < 1.0.0)
     eventmachine (1.2.1)
+    faraday (0.10.1)
+      multipart-post (>= 1.2, < 3)
+    hashie (3.4.6)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    jwt (1.5.6)
+    mime-types (2.99.3)
     multi_json (1.12.1)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
+    netrc (0.11.0)
+    oauth2 (1.3.0)
+      faraday (>= 0.8, < 0.11)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.3.1)
+      hashie (>= 1.2, < 4)
+      rack (>= 1.0, < 3)
+    omniauth-oauth2 (1.3.1)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    rspotify (1.19.0)
+      omniauth-oauth2 (~> 1.3.1)
+      rest-client (~> 1.8)
     safe_yaml (1.0.4)
     sinatra (1.4.7)
       rack (~> 1.5)
@@ -29,12 +60,16 @@ GEM
       eventmachine (~> 1.0, >= 1.0.4)
       rack (>= 1, < 3)
     tilt (2.0.5)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   crack
+  rspotify
   sinatra
   sinatra-contrib
   thin
