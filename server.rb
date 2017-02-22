@@ -13,7 +13,7 @@ end
 
 get "/trends" do 
   content_type("application/json")
-  json(FeedService.get_feeds(params[:countries]))
+  FeedService.fetch_feed()
 end
 
 get "/videos" do 
