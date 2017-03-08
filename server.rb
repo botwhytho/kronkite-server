@@ -2,6 +2,8 @@
 require "pp"
 require "sinatra"
 require "sinatra/json"
+
+require"./lib/server_utils"
 require "./lib/feed_service"
 require "./lib/video_service"
 require "./lib/music_service"
@@ -9,8 +11,8 @@ require "./lib/music_service"
 set :bind, "0.0.0.0"
 
 before do
-   response["Access-Control-Allow-Origin"] = "http://localhost:8888"
- 
+  origin = request.env["HTTP_ORIGIN"]
+  response["Access-Control-Allow-Origin"] = ServerUtils.validate_origin(origin)
 end
 
 options "*" do
