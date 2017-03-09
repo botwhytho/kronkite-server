@@ -3,6 +3,7 @@ module VideoService
   require "./lib/auth_service"
   require "pp"
 
+  API_KEY = ENV["YOUTUBE_API_KEY"]
   BASE_URL = "https://www.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&chart=mostPopular&maxResults=10&key="
 
   def self.set_URL(key)
@@ -11,8 +12,6 @@ module VideoService
 
   def self.get_videos
     #api_key = AuthService.get_auth("youtubeAPIKey")
-
-    API_KEY = ENV["YOUTUBE_API_KEY"]
     response = Net::HTTP.get_response(URI.parse(set_URL(API_KEY)))
 
     sorted_videos = JSON.parse(response.body)["items"].sort { |a, b| 
