@@ -10,8 +10,10 @@ module VideoService
   end
 
   def self.get_videos
-    api_key = AuthService.get_auth("youtubeAPIKey")
-    response = Net::HTTP.get_response(URI.parse(set_URL(api_key)))
+    #api_key = AuthService.get_auth("youtubeAPIKey")
+
+    API_KEY = ENV["YOUTUBE_API_KEY"]
+    response = Net::HTTP.get_response(URI.parse(set_URL(API_KEY)))
 
     sorted_videos = JSON.parse(response.body)["items"].sort { |a, b| 
        b["statistics"]["viewCount"].to_i <=> a["statistics"]["viewCount"].to_i 

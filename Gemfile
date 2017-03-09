@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-gem 'crack'
 gem 'rspotify'
 gem 'sinatra'
 gem 'sinatra-contrib'

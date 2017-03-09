@@ -5,10 +5,12 @@ module MusicService
   require "pp"
   require "./lib/auth_service"
 
-  @API_creds = AuthService.get_auth("spotifyAPI")
+  #@API_creds = AuthService.get_auth("spotifyAPI")
+
+
 
   def self.get_tracks()
-    RSpotify.authenticate(@API_creds["clientID"], @API_creds["clientSecret"])
+    RSpotify.authenticate(ENV["SPOTIFY_API_CLIENTID"], ENV["SPOTIFY_API_CLIENT_SECRET"])
     category = RSpotify::Category.find("toplists", country: "US")
 
     pp category.playlists.first.tracks
