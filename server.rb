@@ -3,6 +3,7 @@ require "pp"
 require "sinatra"
 require "sinatra/json"
 
+require "dotenv/load"
 require"./lib/server_utils"
 require "./lib/feed_service"
 require "./lib/video_service"
