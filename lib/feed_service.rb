@@ -9,10 +9,12 @@ module FeedService
   end
 
   def self.fetch_feed_article(params)
+    pp ENV["MERCURY_API_URL"]
+    
     request = open("#{ENV["MERCURY_API_URL"]}#{params}",
-  		{"x-api-key" => ENV["MERCURY_API_KEY"] })
-
- 	request.read
+  		{"x-api-key" => ENV["MERCURY_API_KEY"]})
+ 
+  	request.read
   end
 
 end

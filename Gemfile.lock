@@ -5,6 +5,7 @@ GEM
     daemons (1.2.4)
     domain_name (0.5.20161129)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.2.0)
     eventmachine (1.2.1)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
@@ -65,10 +66,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   rspotify
   sinatra
   sinatra-contrib
   thin
+
+RUBY VERSION
+   ruby 2.3.3p222
 
 BUNDLED WITH
    1.13.7
