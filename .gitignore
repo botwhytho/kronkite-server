@@ -1,2 +1,3 @@
 .env
 config/auth.json
+lib/sample-api-data.json

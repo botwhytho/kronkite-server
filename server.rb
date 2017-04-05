@@ -37,7 +37,7 @@ get "/videos" do
   VideoService.get_videos
 end
 
-get "/music" do 
+get "/trending-music" do 
   content_type("application/json")
   json(MusicService.get_tracks)
 end
