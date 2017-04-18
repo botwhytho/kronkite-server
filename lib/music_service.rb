@@ -7,7 +7,6 @@ module MusicService
 
   def self.get_tracks()
 
-
     #tracks = JSON.parse(File.read("./lib/sample-api-data.json"))
 
     RSpotify.authenticate(ENV["SPOTIFY_API_CLIENTID"], 
